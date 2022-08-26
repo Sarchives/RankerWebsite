@@ -18,7 +18,7 @@ nav {
     align-items: center;
     background-color: #FFDDDD;
     padding: 20px;
-    width: 100%;
+    width: calc(100% - 40px);
 }
 
 nav > a {
@@ -28,6 +28,8 @@ nav > a {
 nav > ul {
     display: inline-flex;
     column-gap: 20px;
+    align-items: center;
+    width: 100%;
 }
 
 nav > ul > li {
@@ -41,4 +43,14 @@ nav > a, nav > ul > li > a {
 
 nav > a:hover, nav > ul > li > a:hover {
     text-decoration: underline;
+}
+
+.avatarButton {
+    margin-left: auto;
+}
+
+.avatarButton > img {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
 }

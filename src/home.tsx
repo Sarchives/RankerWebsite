@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
 
-export function Dog() {
+export function Home() {
   return (
     <>
-      <h1>Woof!</h1>
+      <h1>home</h1>
     </>
   )
 }
