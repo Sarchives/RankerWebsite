@@ -9,6 +9,20 @@
     padding: 0;
 }
 
+button {
+    border: none;
+    padding: 8px 20px;
+    background-color: #FFD7D7;
+}
+
+button:hover {
+    background-color: #FFC2C2;
+}
+
+button:active {
+    background-color: #FFACAC;
+}
+
 body {
     background-color: #FFEDED;
 }
@@ -52,5 +66,110 @@ nav > a:hover, nav > ul > li > a:hover {
 .avatarButton > img {
     width: 32px;
     height: 32px;
+    border-radius: 100%;
+}
+
+.userMenu {
+    position: absolute;
+    background: #FFDDDD;
+    right: 8px;
+    top: 55px;
+    border: 1px solid black;
+}
+
+.userMenu > li {
+    list-style: none;
+}
+
+main {
+    padding: 20px;
+}
+
+.contributorsUl {
+    margin-left: 40px;
+}
+
+.contributorsUl > li {
+    margin-top: 8px;
+}
+
+.guildsList {
+    display: flex;
+    column-gap: 20px;
+}
+
+.guildsList > a {
+    color: black;
+    text-decoration: none;
+}
+
+.guildsList > a:hover > div {
+    background-color: #FFC2C2;
+}
+
+.guildsList > a:active > div {
+    background-color: #FFACAC;
+}
+
+.guildsList > a > div {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFD7D7;
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 200px;
+    max-width: 400px;
+    align-items: center;
+    text-align: center;
+}
+
+.guildsList > a > div > img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 8px;
+}
+
+.leaderboardBanner {
+    background-color: #F5C5C5;
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #F5C5C5 50%, #000000a1 100%);
+    color: white;
+    display: flex;
+    align-items: flex-end;
+}
+
+.leaderboardBanner > div {
+    padding: 20px 20px 12px 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    width: 100%;
+    position: relative;
+}
+
+.leaderboardBanner > div > img {
+    width: 128px;
+    height: 128px;
+    border-radius: 10px;
+}
+
+.leaderboardBanner > div > button {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    padding: 8px 20px;
+}
+
+.players {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.players > div > img {
+    width: 64px;
+    height: 64px;
     border-radius: 100%;
 }

@@ -22,8 +22,6 @@ export function Callback() {
     }, [])
 
     return (
-        <>
-            <h1>Please wait...</h1>
-        </>
+        <h2>Please wait...</h2>
     )
 }
