@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "preact": "^10.10.1",
+    "react-circular-progressbar": "^2.1.0",
     "react-router-dom": "6"
   },
   "devDependencies": {
