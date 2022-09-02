@@ -97,9 +97,15 @@ export function Leaderboard() {
                         </div>);
                     })}
                 </div>
-                <div class="roleRewards">
-                    <h2>Role rewards</h2>
-                    {guild?.roles.map(role => <h4>Level {role.level} - {role.roleName}</h4>)}
+                <div class="rightyContainer">
+                    <div class="righty">
+                        <h2>Role rewards</h2>
+                        {guild?.roles.map(role => <h4>Level {role.level} - {role.roleName}</h4>)}
+                    </div>
+                    <div class="righty">
+                        <h2>How do I get XP?</h2>
+                        <p>owo</p>
+                    </div>
                 </div>
             </div>
         </> : <h2>Please wait...</h2>
