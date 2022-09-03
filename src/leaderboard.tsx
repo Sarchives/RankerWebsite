@@ -104,7 +104,7 @@ export function Leaderboard() {
                     </div>
                     <div class="righty">
                         <h2>How do I get XP?</h2>
-                        <p>owo</p>
+                        <p>Every minute, you get between {guild?.settings.minRange} and {(guild?.settings.maxRange ?? 26) - 1} XP.</p>
                     </div>
                 </div>
             </div>
