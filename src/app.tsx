@@ -1,6 +1,6 @@
-import { useState } from "preact/hooks";
-import { Outlet, Link, NavLink } from "react-router-dom"
-import { User } from "./interfaces";
+import { useState } from 'preact/hooks';
+import { Outlet, Link, NavLink } from 'react-router-dom';
+import { User } from './interfaces';
 
 export function App(props: { loggedInUser: User | undefined }) {
   const [showUserMenu, setShowUserMenu] = useState(false);
@@ -27,20 +27,20 @@ export function App(props: { loggedInUser: User | undefined }) {
             }}>Servers</NavLink>
           </li>
           <li>
-            <a href={"https://discord.com/api/oauth2/authorize?client_id=" + import.meta.env.VITE_CLIENT_ID + "&permissions=268445697&scope=bot%20applications.commands"} target="_blank">Invite</a>
+            <a href={'https://discord.com/api/oauth2/authorize?client_id=' + import.meta.env.VITE_CLIENT_ID + '&permissions=268445697&scope=bot%20applications.commands'} target="_blank">Invite</a>
           </li>
           <li class="avatarButton" onClick={() => {
             if(!props.loggedInUser) {
-              location.href = "https://discord.com/api/oauth2/authorize?client_id=" + import.meta.env.VITE_CLIENT_ID + "&redirect_uri=" + encodeURIComponent(window.location.origin + "/") + "callback&response_type=code&scope=guilds%20identify";
+              location.href = 'https://discord.com/api/oauth2/authorize?client_id=' + import.meta.env.VITE_CLIENT_ID + '&redirect_uri=' + encodeURIComponent(window.location.origin + '/') + 'callback&response_type=code&scope=guilds%20identify';
             } else {
               setShowUserMenu(!showUserMenu);
             }
           }}>
-            <img src={props.loggedInUser ? props.loggedInUser?.avatar ? ("https://cdn.discordapp.com/avatars/" + props.loggedInUser?.id + "/" + props.loggedInUser?.avatar + ".png?size=32") : "https://cdn.discordapp.com/embed/avatars/5.png" : "https://cdn.discordapp.com/embed/avatars/1.png"}></img>
+            <img src={props.loggedInUser ? props.loggedInUser?.avatar ? ('https://cdn.discordapp.com/avatars/' + props.loggedInUser?.id + '/' + props.loggedInUser?.avatar + '.png?size=32') : 'https://cdn.discordapp.com/embed/avatars/5.png' : 'https://cdn.discordapp.com/embed/avatars/1.png'}></img>
             {showUserMenu ? <ul class="userMenu">
               <li>
                 <button onClick={() => {
-                    localStorage.removeItem("token");
+                    localStorage.removeItem('token');
                     window.location.reload();
                 }}>Sign out</button>
               </li>
