@@ -156,10 +156,10 @@ export function Leaderboard() {
                     })}
                 </div>
                 <div class="rightyContainer">
-                    <div class="righty">
+                    {(guild?.roles.length ?? 0) > 0 ? <div class="righty">
                         <h2>Role rewards</h2>
                         {guild?.roles.map(role => <h4>Level {role.level} - {role.roleName}</h4>)}
-                    </div>
+                    </div> : null}
                     <div class="righty">
                         <h2>How do I get XP?</h2>
                         <p>Every minute, you get between {guild?.settings.minRange} and {(guild?.settings.maxRange ?? 26) - 1} XP.</p>
