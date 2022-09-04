@@ -59,7 +59,7 @@ export function App(props: { loggedInUser: User | undefined }) {
               <h3>{props.loggedInUser ? props.loggedInUser?.username + '#' + props.loggedInUser?.discriminator : 'Sign in'}</h3>
             </button>
             {showUserMenu ? <ul class="userMenu">
-              <li>
+              <li onClick={() => setShowUserMenu(false)}>
                 <Link to="/custom" class="fakeButton darko">Upload custom style</Link>
               </li>
               <li>
@@ -73,27 +73,27 @@ export function App(props: { loggedInUser: User | undefined }) {
         </ul>
 
         {showMobileMenu ? <ul class="mobileMenu">
-          <li>
+          <li onClick={() => setShowMobileMenu(false)}>
             <NavLink className="fakeButton darko" to="/" style={({ isActive }: { isActive: boolean }) => {
               return {
                 backgroundColor: isActive ? '#FFACAC' : '#FFD7D7'
               };
             }}>Home</NavLink>
           </li>
-          <li>
+          <li onClick={() => setShowMobileMenu(false)}>
             <NavLink className="fakeButton darko" to="/servers" style={({ isActive }: { isActive: boolean }) => {
               return {
                 backgroundColor: isActive ? '#FFACAC' : '#FFD7D7'
               };
             }}>Servers</NavLink>
           </li>
-          <li>
+          <li onClick={() => setShowMobileMenu(false)}>
             <a class="fakeButton darko" href={'https://discord.com/api/oauth2/authorize?client_id=' + import.meta.env.VITE_CLIENT_ID + '&permissions=268445697&scope=bot%20applications.commands'} target="_blank">Invite</a>
           </li>
         </ul> : null}
 
         {showUserMenu ? <ul class="mobileMenu">
-          <li>
+          <li onClick={() => setShowUserMenu(false)}>
             <Link to="/custom" class="fakeButton darko">Upload custom style</Link>
           </li>
           <li>
