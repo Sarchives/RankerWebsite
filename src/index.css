@@ -294,6 +294,13 @@ main {
     border-radius: 10px;
 }
 
+.leaderboardContainer > .players > div > h3 {
+    width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .leaderboardContainer > .players > div > h3 > b {
     color: #816D6D;
 }
@@ -408,13 +415,6 @@ main {
 
     .leaderboardContainer > .players {
         width: 100%;
-    }
-
-    .leaderboardContainer > .players > div > h3 {
-        width: 60%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
     }
 
     .leaderboardContainer > .players > div > .right {
