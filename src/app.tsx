@@ -1,52 +1,108 @@
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import { Outlet, Link, NavLink } from 'react-router-dom';
 import { User } from './interfaces';
 
 export function App(props: { loggedInUser: User | undefined }) {
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  useEffect(() => {
+    if(showMobileMenu) {
+      setShowUserMenu(false);
+    }
+  }, [showMobileMenu]);
+
+  useEffect(() => {
+    if(showUserMenu) {
+      setShowMobileMenu(false);
+    }
+  }, [showUserMenu]);
 
   return (
     <>
       <nav>
+        <button class={'menuButton ' + showMobileMenu} onClick={() => setShowMobileMenu(!showMobileMenu)}>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
         <Link to="/">
           <h2>Ranker</h2>
         </Link>
         <ul>
-          <li>
+          <li class="normalMenuItems">
             <NavLink to="/" style={({ isActive }: { isActive: boolean }) => {
               return {
                 textDecoration: isActive ? 'underline' : 'none'
               };
             }}>Home</NavLink>
           </li>
-          <li>
+          <li class="normalMenuItems">
             <NavLink to="/servers" style={({ isActive }: { isActive: boolean }) => {
               return {
                 textDecoration: isActive ? 'underline' : 'none'
               };
             }}>Servers</NavLink>
           </li>
-          <li>
+          <li class="normalMenuItems">
             <a href={'https://discord.com/api/oauth2/authorize?client_id=' + import.meta.env.VITE_CLIENT_ID + '&permissions=268445697&scope=bot%20applications.commands'} target="_blank">Invite</a>
           </li>
-          <li class="avatarButton" onClick={() => {
-            if(!props.loggedInUser) {
-              location.href = 'https://discord.com/api/oauth2/authorize?client_id=' + import.meta.env.VITE_CLIENT_ID + '&redirect_uri=' + encodeURIComponent(window.location.origin + '/') + 'callback&response_type=code&scope=guilds%20identify';
-            } else {
-              setShowUserMenu(!showUserMenu);
-            }
-          }}>
-            <img src={props.loggedInUser ? props.loggedInUser?.avatar ? ('https://cdn.discordapp.com/avatars/' + props.loggedInUser?.id + '/' + props.loggedInUser?.avatar + '.png?size=32') : 'https://cdn.discordapp.com/embed/avatars/5.png' : 'https://cdn.discordapp.com/embed/avatars/1.png'}></img>
+          <li class="userContainer">
+            <button class={'darko ' + showUserMenu} onClick={() => {
+              if (props.loggedInUser) {
+                setShowUserMenu(!showUserMenu);
+              } else {
+                location.href = 'https://discord.com/api/oauth2/authorize?client_id=' + import.meta.env.VITE_CLIENT_ID + '&redirect_uri=' + encodeURIComponent(window.location.origin + '/') + 'callback&response_type=code&scope=guilds%20identify';
+              }
+            }}>
+              <img src={props.loggedInUser ? props.loggedInUser?.avatar ? ('https://cdn.discordapp.com/avatars/' + props.loggedInUser?.id + '/' + props.loggedInUser?.avatar + '.png?size=32') : 'https://cdn.discordapp.com/embed/avatars/5.png' : 'https://cdn.discordapp.com/embed/avatars/1.png'}></img>
+              <h3>{props.loggedInUser ? props.loggedInUser?.username + '#' + props.loggedInUser?.discriminator : 'Sign in'}</h3>
+            </button>
             {showUserMenu ? <ul class="userMenu">
               <li>
-                <button onClick={() => {
-                    localStorage.removeItem('token');
-                    window.location.reload();
+                <Link to="/custom" class="fakeButton darko">Upload custom style</Link>
+              </li>
+              <li>
+                <button class="darko" onClick={() => {
+                  localStorage.removeItem('token');
+                  window.location.reload();
                 }}>Sign out</button>
               </li>
             </ul> : null}
           </li>
         </ul>
+
+        {showMobileMenu ? <ul class="mobileMenu">
+          <li>
+            <NavLink className="fakeButton darko" to="/" style={({ isActive }: { isActive: boolean }) => {
+              return {
+                backgroundColor: isActive ? '#FFACAC' : '#FFD7D7'
+              };
+            }}>Home</NavLink>
+          </li>
+          <li>
+            <NavLink className="fakeButton darko" to="/servers" style={({ isActive }: { isActive: boolean }) => {
+              return {
+                backgroundColor: isActive ? '#FFACAC' : '#FFD7D7'
+              };
+            }}>Servers</NavLink>
+          </li>
+          <li>
+            <a class="fakeButton darko" href={'https://discord.com/api/oauth2/authorize?client_id=' + import.meta.env.VITE_CLIENT_ID + '&permissions=268445697&scope=bot%20applications.commands'} target="_blank">Invite</a>
+          </li>
+        </ul> : null}
+
+        {showUserMenu ? <ul class="mobileMenu">
+          <li>
+            <Link to="/custom" class="fakeButton darko">Upload custom style</Link>
+          </li>
+          <li>
+            <button class="darko" onClick={() => {
+              localStorage.removeItem('token');
+              window.location.reload();
+            }}>Sign out</button>
+          </li>
+        </ul> : null}
       </nav>
       <main>
         <Outlet />

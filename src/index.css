@@ -1,6 +1,7 @@
 @font-face {
     font-family: 'Inter';
     src: url(/Inter-VariableFont_slnt,wght.ttf) format('truetype');
+    font-display: swap;
 }
 
 * {
@@ -13,7 +14,16 @@
     filter: brightness(95%);
 }
 
-button {
+.fakeButton {
+    display: block;
+    text-decoration: none;
+    color: black;
+    cursor: default;
+    font-size: 13.3333px;
+    text-align: center;
+}
+
+button, .fakeButton {
     border: none;
     border-radius: 4px;
     padding: 8px 20px;
@@ -21,11 +31,11 @@ button {
     transition: background 0.3s;
 }
 
-button:hover {
+button:hover, .fakeButton:hover {
     background-color: #FFC2C2;
 }
 
-button:active {
+button:active, button.true, .fakeButton:active, .fakeButton.true {
     background-color: #FFACAC;
 }
 
@@ -58,7 +68,6 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #FFDDDD;
-    width: 25%;
     border-radius: 10px;
     padding: 20px;
     z-index: 1000;
@@ -101,15 +110,61 @@ nav > a, nav > ul > li > a {
     text-decoration: none;
 }
 
-nav > a:hover, nav > ul > li > a:hover {
+nav > a:hover {
+    text-decoration: underline;
+}
+
+nav > ul > li > a.normalMenuItems:hover {
     text-decoration: underline !important;
 }
 
-.avatarButton {
-    margin-left: auto;
+.mobileMenu {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    flex-direction: column;
+    background-color: #FFDDDD;
+    width: 100%;
+    height: calc(100% - 72px);
 }
 
-.avatarButton > img {
+.mobileMenu > li {
+    width: 100%;
+}
+
+.mobileMenu > li > button, .mobileMenu > li > a {
+    padding: 20px;
+    font-size: 24px;
+}
+
+.mobileMenu > li > button {
+    width: 100%;
+}
+
+.menuButton {
+    padding: 8px;
+    margin-right: 20px;
+    display: none;
+}
+
+.menuButton > svg {
+    width: 20px;
+    height: 20px;
+}
+
+.userContainer {
+    margin-left: auto;
+    position: relative;
+}
+
+.userContainer > button {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
+.userContainer > button > img {
     width: 32px;
     height: 32px;
     border-radius: 100%;
@@ -117,14 +172,19 @@ nav > a:hover, nav > ul > li > a:hover {
 
 .userMenu {
     position: absolute;
-    background: #FFDDDD;
-    right: 8px;
-    top: 55px;
-    border: 1px solid black;
+    z-index: 1000;
+    width: 200px;
+    right: 0;
+    border-top: 1px solid black;
 }
 
 .userMenu > li {
     list-style: none;
+    width: 100%;
+}
+
+.userMenu > li > button {
+    width: 100%;
 }
 
 main {
@@ -141,7 +201,9 @@ main {
 
 .guildsList {
     display: flex;
-    column-gap: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 .guildsList > a {
@@ -305,4 +367,63 @@ main {
     border: 1px solid black;
     border-radius: 5px;
     padding: 5px;
+}
+
+@media screen and (max-width: 500px) {
+    .mobileMenu {
+        display: block;
+    }
+
+    .menuButton {
+        display: block;
+    }
+
+    nav > a:hover {
+        text-decoration: none;
+    }
+
+    .normalMenuItems {
+        display: none;
+    }
+
+    .userContainer > button {
+        padding: 8px;
+    }
+
+    .userContainer > button > h3 {
+        display: none;
+    }
+
+    .userMenu {
+        display: none;
+    }
+
+    .leaderboardBanner > div > div {
+        display: none;
+    }
+
+    .leaderboardContainer {
+        flex-direction: column-reverse;
+    }
+
+    .leaderboardContainer > .players {
+        width: 100%;
+    }
+
+    .leaderboardContainer > .players > div > h3 {
+        width: 60%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .leaderboardContainer > .players > div > .right {
+        display: none;
+    }
+
+    .leaderboardContainer > .rightyContainer {
+        width: 100%;
+        margin: 0;
+        margin-top: 20px;
+    }
 }
