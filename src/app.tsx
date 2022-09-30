@@ -90,9 +90,6 @@ export function App(props: { loggedInUser: User | undefined }) {
         </ul> : null}
 
         {showUserMenu ? <ul class="mobileMenu">
-          <li onClick={() => setShowUserMenu(false)}>
-            <Link to="/custom" class="fakeButton darko">Upload custom style</Link>
-          </li>
           <li>
             <button class="darko" onClick={() => {
               localStorage.removeItem('token');
