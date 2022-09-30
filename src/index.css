@@ -40,7 +40,24 @@ button:active, button.true, .fakeButton:active, .fakeButton.true {
 }
 
 input[type="radio"] {
+    visibility: hidden;
     margin-right: 8px;
+}
+
+input[type="radio"]::before {
+    visibility: visible;
+    content: '';
+    background-color: white;
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    display: block;
+}
+
+input[type="radio"]:checked::before {
+    box-sizing: border-box;
+    background-color: #FFACAC;
+    border: 4px solid white;
 }
 
 body {
@@ -175,7 +192,7 @@ nav > ul > li > a.normalMenuItems:hover {
     z-index: 1000;
     width: 200px;
     right: 0;
-    border-top: 1px solid black;
+    border: 1px solid black;
 }
 
 .userMenu > li {
