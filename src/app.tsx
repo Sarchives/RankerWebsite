@@ -73,14 +73,14 @@ export function App(props: { loggedInUser: User | undefined }) {
           <li onClick={() => setShowMobileMenu(false)}>
             <NavLink className="fakeButton darko" to="/" style={({ isActive }: { isActive: boolean }) => {
               return {
-                backgroundColor: isActive ? '#FFACAC' : '#FFD7D7'
+                backgroundColor: isActive ? '#FFACAC' : ''
               };
             }}>Home</NavLink>
           </li>
           <li onClick={() => setShowMobileMenu(false)}>
             <NavLink className="fakeButton darko" to="/servers" style={({ isActive }: { isActive: boolean }) => {
               return {
-                backgroundColor: isActive ? '#FFACAC' : '#FFD7D7'
+                backgroundColor: isActive ? '#FFACAC' : ''
               };
             }}>Servers</NavLink>
           </li>
