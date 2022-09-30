@@ -80,9 +80,7 @@ export function Leaderboard() {
                 <input type="radio" id="zeealeid" name="style" value="zeealeid" checked={style === 'zeealeid' || newStyle === 'zeealeid'} onChange={() => setNewStyle('zeealeid')} />
                 <label for="zeealeid">Zeealeid (default)</label><br />
                 <input type="radio" id="fleuron" name="style" value="fleuron" checked={style === 'fleuron' || newStyle === 'fleuron'} onChange={() => setNewStyle('fleuron')} />
-                <label for="fleuron">Fleuron</label><br />
-                <input type="radio" id="custom" name="style" value="custom" checked={style === 'custom' || newStyle === 'custom'} onChange={() => setNewStyle('custom')} />
-                <label for="custom">Custom (HTML/CSS)</label>
+                <label for="fleuron">Fleuron</label>
             </div>
             <div class="buttons">
                 <button class="darko" onClick={() => {

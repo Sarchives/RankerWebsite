@@ -59,9 +59,6 @@ export function App(props: { loggedInUser: User | undefined }) {
               <h3>{props.loggedInUser ? props.loggedInUser?.username + '#' + props.loggedInUser?.discriminator : 'Sign in'}</h3>
             </button>
             {showUserMenu ? <ul class="userMenu">
-              <li onClick={() => setShowUserMenu(false)}>
-                <Link to="/custom" class="fakeButton darko">Upload custom style</Link>
-              </li>
               <li>
                 <button class="darko" onClick={() => {
                   localStorage.removeItem('token');
