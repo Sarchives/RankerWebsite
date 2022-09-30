@@ -13,7 +13,7 @@ export function Leaderboard() {
     const [showCustomizeRank, setShowCustomizeRank] = useState(false);
     let page = 0;
     let scrollDone = true;
-    let params = useParams();
+    const params = useParams();
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
@@ -53,7 +53,7 @@ export function Leaderboard() {
                     .then(res => res.json())
                     .then(json => {
                         setGuild(oldGuild => {
-                            let newGuild = Object.assign({}, oldGuild);
+                            const newGuild = Object.assign({}, oldGuild);
                             newGuild.players = newGuild.players.concat(json.players);
                             return newGuild;
                         })

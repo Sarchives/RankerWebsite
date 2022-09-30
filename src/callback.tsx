@@ -2,7 +2,7 @@ import { useEffect } from 'preact/hooks';
 import { useNavigate } from 'react-router-dom';
 
 export function Callback() {
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search.substring(1));
