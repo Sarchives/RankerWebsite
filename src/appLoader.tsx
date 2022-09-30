@@ -1,11 +1,11 @@
-import { useEffect, useState } from "preact/hooks"
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
-import { App } from './app'
-import { Callback } from './callback'
-import { Home } from './home'
-import { Servers } from './servers'
-import { Leaderboard } from "./leaderboard"
-import { User } from "./interfaces"
+import { useEffect, useState } from 'preact/hooks';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { App } from './app';
+import { Callback } from './callback';
+import { Home } from './home';
+import { Servers } from './servers';
+import { Leaderboard } from './leaderboard';
+import { User } from './interfaces';
 
 export function AppLoader() {
     const [loggedInUser, setLoggedInUser] = useState<User>();
