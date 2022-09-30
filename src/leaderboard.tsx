@@ -156,7 +156,7 @@ export function Leaderboard() {
                 <div class="rightyContainer">
                     {(guild?.roles.length ?? 0) > 0 ? <div class="righty">
                         <h2>Role rewards</h2>
-                        {guild?.roles.map(role => <h4>Level {role.level} - {role.roleName}</h4>)}
+                        {guild?.roles.map(role => <h4 class="bottomSpacer8">Level {role.level} - {role.roleName}</h4>)}
                     </div> : null}
                     <div class="righty">
                         <h2>How do I get XP?</h2>
