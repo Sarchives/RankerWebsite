@@ -2,7 +2,7 @@ export function Home() {
   return (
     <>
       <h2>Ranker</h2>
-      <p>Ranker is a Discord ranking bot. It offers two rank card styles and a leaderboard.</p>
+      <p>Ranker - the ranking bot that makes switching magical, customisable, and completely open.</p>
       <br />
       <h2>Want to invite our public bot?</h2>
       <p>You can invite our bot from <a href={'https://discord.com/api/oauth2/authorize?client_id=' + import.meta.env.VITE_CLIENT_ID + '&permissions=268445697&scope=bot%20applications.commands'} target="_blank">here.</a></p>
