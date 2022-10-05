@@ -108,7 +108,7 @@ export function Leaderboard() {
         {loaded ? <>
             <div class="leaderboardBanner">
                 <div>
-                    <img src={'https://cdn.discordapp.com/icons/' + params.guildId + '/' + guild?.guild.icon + '.png?size=128'} />
+                    <img src={typeof guild?.guild.icon === 'string' ? ('https://cdn.discordapp.com/icons/' + params.guildId + '/' + guild?.guild.icon + '.png?size=128') : 'https://cdn.discordapp.com/embed/avatars/1.png'} />
                     <h2>{guild?.guild.name}</h2>
                     <h4><i>{guild?.guild.description ?? 'No description'}</i></h4>
                     <div>
@@ -156,7 +156,7 @@ export function Leaderboard() {
                 <div class="rightyContainer">
                     {(guild?.roles.length ?? 0) > 0 ? <div class="righty">
                         <h2>Role rewards</h2>
-                        {guild?.roles.map(role => <h4 class="bottomSpacer8">Level {role.level} - {role.roleName}</h4>)}
+                        {guild?.roles.map(role => <h4 class="bottomSpacer8t">Level {role.level} - {role.roleName}</h4>)}
                     </div> : null}
                     <div class="righty">
                         <h2>How do I get XP?</h2>

@@ -35,7 +35,7 @@ export function App(props: { loggedInUser: User | undefined }) {
               return {
                 textDecoration: isActive ? 'underline' : 'none'
               };
-            }}>Home</NavLink>
+            }} end>Home</NavLink>
           </li>
           <li class="normalMenuItems">
             <NavLink to="/servers" style={({ isActive }: { isActive: boolean }) => {
@@ -75,7 +75,7 @@ export function App(props: { loggedInUser: User | undefined }) {
               return {
                 backgroundColor: isActive ? '#FFACAC' : ''
               };
-            }}>Home</NavLink>
+            }} end>Home</NavLink>
           </li>
           <li onClick={() => setShowMobileMenu(false)}>
             <NavLink className="fakeButton darko" to="/servers" style={({ isActive }: { isActive: boolean }) => {
