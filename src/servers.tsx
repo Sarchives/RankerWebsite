@@ -28,7 +28,7 @@ export function Servers() {
             {loaded ? <div class="guildsList">
                 {guilds.map(guild => <Link to={'/leaderboard/' + guild.id}>
                 <div>
-                    <img src={'https://cdn.discordapp.com/icons/' + guild.id + '/' + guild.icon + '.png?size=64'} alt={guild.name} />
+                    <img src={typeof guild.icon === 'string' ? ('https://cdn.discordapp.com/icons/' + guild.id + '/' + guild.icon + '.png?size=64') : 'https://cdn.discordapp.com/embed/avatars/1.png'} alt={guild.name} />
                     {guild.name}
                 </div>
                 </Link>)}
