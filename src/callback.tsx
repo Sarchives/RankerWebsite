@@ -15,6 +15,8 @@ export function Callback() {
             .then(result => {
                 if (result.access_token) {
                     localStorage.setItem('token', result.access_token);
+                    localStorage.setItem('refresh', result.refresh_token);
+                    localStorage.setItem('expiration', (Date.now() + (604800 * 1000)).toString());
                 }
                 navigate(-2);
             });

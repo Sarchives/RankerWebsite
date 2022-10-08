@@ -17,7 +17,16 @@ export function AppLoader() {
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }
             })
-                .then(res => res.json())
+                .then(res => {
+                    if(res.status === 200) {
+                        return res.json();
+                    } else {
+                        localStorage.removeItem('token');
+                        localStorage.removeItem('refresh');
+                        localStorage.removeItem('expiration');
+                        return;
+                    }
+                })
                 .then(result => {
                     setLoggedInUser(result);
                 });
